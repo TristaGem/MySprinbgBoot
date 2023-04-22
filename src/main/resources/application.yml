@@ -1,0 +1,27 @@
+server:
+  port: 80
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mybatis?serverTimezone=UTC
+    username: root
+    password: root
+
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: tbl_
+      #????id??????????????????????????id???????
+      id-type: assign_id
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  pattern:
+    console: "%d %clr(%p) --- [%16t] %clr(%-40.40c){cyan} : %m %n"
+  file:
+    name: server.log
+  logback:
+    rollingpolicy:
+      max-file-size: 10KB
+      file-name-pattern: server.%d{yyyy-MM-dd}.%i.log
